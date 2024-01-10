@@ -1,0 +1,4 @@
+Makefile
+user-storage-jpa
+*/target
+standalone
