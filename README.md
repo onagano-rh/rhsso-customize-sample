@@ -26,3 +26,7 @@ $ mvn pacakge wildfly:deploy
 
 テスト用のユーザを作成し、アカウント管理コンソール (http://localhost:8080/auth/realms/test-realm/account/) にログインしてみて動作を確認する。
 
+# User Storage SPI
+
+Quickstartsよりuser-storage-simpleとuser-storage-jpaをコピー。ビルド可能にはしてあるが使い方については後で更新する。
+
