@@ -11,7 +11,7 @@ $ mvn package wildfly:deploy
 
 # カスタムテーマのビルドとデプロイ
 $ cd ../theme
-$ mvn pacakge wildfly:deploy
+$ mvn package wildfly:deploy
 ```
 
 ## 設定
@@ -28,5 +28,15 @@ $ mvn pacakge wildfly:deploy
 
 # User Storage SPI
 
-Quickstartsよりuser-storage-simpleとuser-storage-jpaをコピー。ビルド可能にはしてあるが使い方については後で更新する。
+Quickstartsよりuser-storage-simpleとuser-storage-jpaをコピー。
+それぞれ以下の方法でビルド(Java 17では失敗するので8か11を使う)およびデプロイし、User Federationタブで設定して使用する。
+
+```sehll
+$ cd ../user-storage-simple
+$ JAVA_HOME=/usr/lib/jvm/jre-11 mvn package wildfly:deploy -Dkeycloak.management.port=9990
+
+$ cd ../user-storage-jpa
+$ JAVA_HOME=/usr/lib/jvm/jre-11 mvn -Padd-datasource install -Dkeycloak.management.port=9990
+$ JAVA_HOME=/usr/lib/jvm/jre-11 mvn package wildfly:deploy -Dkeycloak.management.port=9990
+```
 
